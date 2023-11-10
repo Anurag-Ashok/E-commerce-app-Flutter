@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_e_comerce/utils/const.dart';
 
+// ignore: camel_case_types
 class mainAdd extends StatelessWidget {
   const mainAdd({super.key});
 

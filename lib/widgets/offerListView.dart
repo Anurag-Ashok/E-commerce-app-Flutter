@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_e_comerce/utils/images.dart';
 
 class offerListView extends StatefulWidget {
   const offerListView({super.key});
@@ -10,37 +11,47 @@ class offerListView extends StatefulWidget {
 class _offerListViewState extends State<offerListView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: double.infinity,
-      color: Colors.amber,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Minimum 30% OFF',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Column(
-            children: [
-              // Container(
-              //   height: 40,
-              //   width: double.infinity,
-              //   child: ListView.builder(
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: 10,
-              //     itemBuilder: (context, index) {
-              //       return Container(
-              //         color: Colors.black45,
-              //         height: 30,
-              //         width: 30,
-              //       );
-              //     },
-              //   ),
-              // ),
-            ],
-          )
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 150,
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Minimum 30% OFF',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 100,
+              width: double.infinity,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: offerImage.length,
+                itemBuilder: (context, index) {
+                  return SizedBox(
+                    width: 120,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      height: 50,
+                      width: 50,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: Image.network(offerImage[index])),
+                          Text(offerItems[index])
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
